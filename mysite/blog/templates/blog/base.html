@@ -1,0 +1,26 @@
+{% comment %}
+    template tags {% tag %}
+    template variables {{ variable }}
+    template filters {{ variable|filter }}
+    https://docs.djangoproject.com/en/1.8/ref/templates/builtins/
+{% endcomment %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "css/blog.css" %}" rel="stylesheet">
+</head>
+
+<body>
+    <div id="content">
+        {% block content %} {% endblock %}
+    </div>
+    <div id="sidebar">
+        <h2>My blog</h2>
+        <p>This is My blog</p>
+    </div>
+</body>
+
+</html>
