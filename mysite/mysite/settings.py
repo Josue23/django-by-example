@@ -25,7 +25,7 @@ SECRET_KEY = 'wp9xyt7ecc_dmbcb5f#7qbesn^d+gw(ol@@z7jz-#_-cdxm+$t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'django_extensions',
+    'widget_tweaks',
 
     'blog',
 )
@@ -106,3 +107,40 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, "blog/static"),)
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'josuerodrigues@gmail.com'
+EMAIL_HOST_PASSWORD = 'leonidas300766!@#'
+EMAIL_PORT = 587
+
+
+
+# Werkzeug
+RUNSERVERPLUS_SERVER_ADDRESS_PORT = '0.0.0.0:8000'
+RUNSERVERPLUS_POLLER_RELOADER_INTERVAL = 5
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'werkzeug': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
+'''
+Gmail
+Permitir aplicativos menos seguros: ATIVADA
+https://myaccount.google.com/lesssecureapps?rfn=27&rfnc=1&eid=-3954161153328850755&et=0&asae=2&pli=1
+
+autenticação em duas etapas
+https://myaccount.google.com/security?pmr=1
+'''
