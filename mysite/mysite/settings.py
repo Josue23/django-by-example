@@ -93,6 +93,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
@@ -110,11 +111,16 @@ STATIC_URL = '/static/'
 
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, "blog/static"),)
 
+# Ao invés de enviar e-mail, exibe o e-mail no terminal
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# E-mail
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'josuerodrigues@gmail.com'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_PASSWORD = 'Casa@#2018@#$'
 EMAIL_PORT = 587
+# DEFAULT_FROM_EMAIL= 'email@email.com'
 
 
 

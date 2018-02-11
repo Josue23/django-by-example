@@ -8,10 +8,12 @@
 
 {% block content %}
     {% if sent %}
+    <div class="alert alert-success">
         <h1>E-mail successfully sent</h1>
         <p>
             "{{ post.title }}" was successfully sent to {{ cd.to }}.
         </p>
+    </div>
     {% else %}
         <h1>Share "{{ post.title }}" by e-mail</h1>
 
@@ -41,6 +43,5 @@
                 </div>
             </fieldset>
         </form>
-{% comment %} implementar django tweaks widget {% endcomment %}
     {% endif %}
 {% endblock %}
