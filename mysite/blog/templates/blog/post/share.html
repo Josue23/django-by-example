@@ -1,11 +1,10 @@
 {% extends "blog/base.html" %}
 {% load widget_tweaks %}
 
-<!-- adiciona atributos sem parâmetros -->
-{{ form.name|attr:"autofocus" }}
 
-
-{% block title %}Share a post{% endblock %}
+{% block title %}
+    Share a post | {{ block.super }}
+{% endblock %}
 
 {% block content %}
     {% if sent %}
@@ -16,11 +15,32 @@
     {% else %}
         <h1>Share "{{ post.title }}" by e-mail</h1>
 
-        <form action="." method="post">
-            {{ form.as_p }} 
+        <form class="form-horizontal" action="." method="post">
             {% csrf_token %}
-            <input type="submit" value="Send e-mail">
+            <fieldset>
+                {% comment %} {{ form.as_p }}  {% endcomment %}
+                
+                {% for field in form.visible_fields %}
+                <div class="form-group{% if field.errors %} has-error {% endif %}">
+                    <label for="{{ field.auto_id  }}" class="col-md-3 control-label">{{ field.label }}</label>
+                    <div class="col-md-9">
+                        {% comment %} {{ field.label_tag }} {% endcomment %}
+                        {% comment %} {{ field }} {% endcomment %}
+                        {% render_field field class='form-control' autofocus='autofocus' %}
+                        
+                        {% for error in field.errors  %}
+                            <span class="help-block">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="form-group">
+                    <div class="col-md-9 col-md-offset-3">
+                        <input type="submit" value="Send e-mail">
+                    </div>
+                </div>
+            </fieldset>
         </form>
-
+{% comment %} implementar django tweaks widget {% endcomment %}
     {% endif %}
 {% endblock %}

@@ -38,9 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # libs
     'django_extensions',
     'widget_tweaks',
 
+    # apps
     'blog',
 )
 
@@ -111,7 +113,7 @@ STATIC_URL = '/static/'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'josuerodrigues@gmail.com'
-EMAIL_HOST_PASSWORD = '!@#'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 
 

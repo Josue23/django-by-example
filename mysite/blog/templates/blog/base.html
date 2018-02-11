@@ -5,11 +5,11 @@
     https://docs.djangoproject.com/en/1.8/ref/templates/builtins/
 {% endcomment %}
 {% load staticfiles %}
-{% comment %} {% load widget_tweaks %} {% endcomment %}
 <!DOCTYPE html>
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>{% block title %}{% endblock %}</title>
     <link href="{% static "css/blog.css" %}" rel="stylesheet">
 </head>
@@ -22,6 +22,7 @@
         <h2>My blog</h2>
         <p>This is My blog</p>
     </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 
 </html>

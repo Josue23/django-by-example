@@ -39,9 +39,9 @@ def post_share(request, post_id):
     post = get_object_or_404(Post, id=post_id, status='published')
     sent = False
 
+    # Form was submitted on None
     form = EmailPostForm(request.POST or None)
     if request.method == 'POST':
-        # Form was submitted
         if form.is_valid():
             # Form fields passed validation
             cd = form.cleaned_data
