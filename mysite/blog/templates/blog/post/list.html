@@ -1,13 +1,12 @@
 {% extends "blog/base.html" %}
-{% comment %}
+{% comment %} \
     template tags {% tag %} 
-    template variables {{ variable }}
+    template variables {{ variable }} 
     template filters {{ variable|filter }} 
-    https://docs.djangoproject.com/en/1.8/ ref/templates/builtins/
-{% endcomment %}
+    https://docs.djangoproject.com/en/1.8/ ref/templates/builtins/ 
+{% endcomment %} 
 
-
-{% block title %}My blog{% endblock %}
+{% block title %}My blog{%endblock %}
 
 {% block content %}
     <h1>My blog</h1>
@@ -20,8 +19,8 @@
         <p class="date">
             Published {{ post.publish }} by {{ post.author }}
         </p>
-        {{ post.body|truncatewords:30|linebreaks }}
+        {{ post.body|truncatewords:30|linebreaks }} 
     {% endfor %}
     
-    {% include 'pagination.html' with page=page_obj %}
+    {% include 'pagination.html' with page=page_obj %} 
 {% endblock %}
